@@ -54,8 +54,13 @@
     (goto-char (point-min))
     (car (cdar (org-collect-keywords '("title"))))))
 
+;; This creates the subtree using org headings
+;; (defun -make-heading (s level)
+;;   (concat (make-string level ?*) " " s "\n"))
+
+;; This creates the subtree using a list
 (defun -make-heading (s level)
-  (concat (make-string level ?*) " " s "\n"))
+  (concat (make-string (* level 2) ? ) " -" s "\n"))
 
 ;; Added so only .org files and directories are included
 (defun -include-file (file)
